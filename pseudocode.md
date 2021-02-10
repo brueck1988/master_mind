@@ -55,3 +55,13 @@ output results
 player input
 
 compare player input
+
+Start with one character.
+user input shall be string which is the converted to an array.
+All comparisons made are between arrays.
+
+Classes We Want to Create:
+mastermind.rb (runner)
+game_message.rb
+game.rb
+code.rb
