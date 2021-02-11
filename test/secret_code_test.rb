@@ -13,12 +13,12 @@ class SecretCodeGeneratorTest < Minitest::Test
   #   assert_equal [], generated_code.secret_code
   # end
 
-  def test_generate_code
-
-    generated_code = SecretCodeGenerator.new
-
-    assert_equal 4, generated_code.generate_code.length
-  end
+  # def test_generate_code
+  #
+  #   generated_code = SecretCodeGenerator.new
+  #
+  #   assert_equal 4, generated_code.generate_code.length
+  # end
 
   def test_code_comparer
     generated_code = SecretCodeGenerator.new
