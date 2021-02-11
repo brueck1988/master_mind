@@ -4,9 +4,9 @@ class SecretCodeGenerator
               :player_code
 
 def initialize
-  @secret_code = secret_code
+  @secret_code = ["R", "G", "B", "Y"]
   @player_code = ["R", "G", "B", "Y"]
-  @pins = Array.new(4)
+  @red_pins = []
 end
 
 def generate_code
@@ -20,24 +20,24 @@ def generate_code
   end
 
    def code_comparer
-    4.times do |player_position|
-      4.times do |computer_position|
-        #require "pry";binding.pry
-        if @secret_code[computer_position] == @player_code[player_position]
-          @pins[computer_position] = "redpin"
-        else 4.times do |computer_position|
-              if @secret_code[computer_position] != @player_code[player_position]
-                @pins = "no pin"
-              else
-                    @pins[computer_position] = "white pin"
-              end
-             end
-        end
+     @pin_count = 0
 
+    4.times do |count1|
+      if @secret_code[count1-1] == @player_code[count1-1]
+        @pins[count1-1] = "red pin"
+          #require "pry";binding.pry
+        else 4.times do |count2|
+              if @secret_code[count1-1] == @player_code[count2-1]
+                @pins[count1-1] = "white pin"
+              else
+              end
+             #end
+        end
       end
 
      end
-     require "pry";binding.pry
       @pins
+      #@pin_count
+      #require "pry";binding.pry
    end
  end
