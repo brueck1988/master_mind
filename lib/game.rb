@@ -40,7 +40,6 @@ class Game
      @message.input_is_to_long
      @message.input_is_to_short
       #if player.invalid_guess is greater than 4 characters or less than 4 characters
-
     end
   end
 end
