@@ -1,8 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/secret_code'
+require './lib/code_comparer'
 
-class SecretCodeGeneratorTest < Minitest::Test
+class CodeComparerTest < Minitest::Test
   def test_it_exists
     player_code = ["R", "G", "Y", "B"]
     generated_code = SecretCodeGenerator.new(player_code)
