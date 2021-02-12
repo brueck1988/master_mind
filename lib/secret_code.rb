@@ -1,3 +1,4 @@
+
 class SecretCodeGenerator
 
    attr_reader :player_code,
@@ -7,8 +8,8 @@ class SecretCodeGenerator
 
 
  def initialize(player_code)
-#   #@secret_code = secret_code
-   @player_code = player_code
+  #@secret_code = secret_code
+  @player_code = player_code
   @red_pins = Array.new(4)
   @white_pins = Array.new(4)
  end

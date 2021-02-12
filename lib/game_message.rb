@@ -36,10 +36,6 @@ class Messages
     print ">"
   end
 
-  def invalid_guess
-    puts "That is an invalid guess. Try Again:"
-    print ">"
-  end
 
   def input_is_to_short
     puts "Your element input was to short.\n Please Try Again."
