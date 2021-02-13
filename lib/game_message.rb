@@ -37,13 +37,13 @@ class Messages
   end
 
 
-  def input_is_to_short
-    puts "Your element input was to short.\n Please Try Again."
+  def input_is_too_short
+    puts "Your element input was too short.\n Please Try Again."
     print ">"
   end
 
-  def input_is_to_long
-    puts "Your element input was to long.\n Please Try Again."
+  def input_is_too_long
+    puts "Your element input was too long.\n Please Try Again."
     print ">"
   end
 end

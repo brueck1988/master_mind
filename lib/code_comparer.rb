@@ -17,7 +17,6 @@ class CodeComparer
     4.times do |count1|
       if @secret_code[count1] == player_code[count1]
         @red_pins[count1] = "red pin"
-        #require "pry";binding.pry
         end
          4.times do |count2|
           if @secret_code[count2] == player_code[count1]
@@ -31,10 +30,6 @@ class CodeComparer
         p " "
 
      end
-     #require "pry";binding.pry
-
-      #@pin_count
-      #require "pry";binding.pry
    end
 
    def red_pin_count
