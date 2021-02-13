@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/secret_code'
 require './lib/player_input'
-require './lib/code_comparer'
+require './lib/code_analyzer'
 
 class CodeAnalyzerTest < Minitest::Test
   def test_it_exists

@@ -1,7 +1,7 @@
 require './lib/game'
 require './lib/secret_code'
 require './lib/player_input'
-require './lib/code_comparer'
+require './lib/code_analyzer'
 
 class Messages
 
@@ -28,6 +28,7 @@ class Messages
 
   def quit
     puts "You have quit the game.\n ---Good Bye---"
+    exit
   end
 
   def intro
@@ -42,13 +43,11 @@ class Messages
   def input_is_too_short
     puts "Your element input was too short.\n Please Try Again."
     print ">"
-    user_prompt = gets.chomp.downcase
   end
 
   def input_is_too_long
-    user_prompt = gets.chomp.downcase
     puts "Your element input was too long.\n Please Try Again."
     print ">"
-        user_prompt = gets.chomp.downcase
+
   end
 end
