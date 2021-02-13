@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/secret_code1'
+require './lib/secret_code'
 
 class SecretCodeTest < Minitest::Test
   def test_it_exists_and_has_attributes

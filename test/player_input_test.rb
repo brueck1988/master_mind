@@ -23,7 +23,6 @@ class PlayerInputTest < Minitest::Test
   end
 
   def test_it_has_valid_length_or_invalid
-    # skip
     player_code1 = PlayerInput.new("RYGB")
     assert_equal true, player_code1.valid_length?
 
