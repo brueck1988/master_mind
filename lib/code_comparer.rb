@@ -1,10 +1,8 @@
-# require './lib/secret_code'
-# require './lib/player_input'
-
-class CodeComparer
-
-  attr_reader :red_pin_count,
-              :white_pin_count
+ class CodeAnalyzer
+  attr_reader   :red_pins,
+                :white_pins,
+                :red_pin_count,
+                :white_pin_count
   attr_accessor :player_input,
                 :secret_code
 
@@ -27,9 +25,9 @@ class CodeComparer
       end
     end
   end
-    p @red_pins
-    p @white_pins
-    p " "
+    @white_pins
+    @red_pins
+    output = @white_pins + @red_pins
   end
 
   def red_pin_count
