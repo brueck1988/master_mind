@@ -5,7 +5,6 @@ class PlayerInput
 
   def initialize(input)
     @input   = input.upcase.split('')
-    @message = Messages.new
   end
 
   def valid_elements?
@@ -17,13 +16,14 @@ class PlayerInput
   end
 
   def valid_length?
+    @message = Messages.new
     if input.count == 4
       true
     elsif input.count < 4
       p @message.input_is_too_short
       false
     else input.count > 4
-      p @message.input_is_too_short
+      p @message.input_is_too_long
       false
     end
   end

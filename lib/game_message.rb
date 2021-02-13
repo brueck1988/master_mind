@@ -1,4 +1,7 @@
 require './lib/game'
+require './lib/secret_code'
+require './lib/player_input'
+require './lib/code_comparer'
 
 class Messages
 
@@ -18,7 +21,6 @@ class Messages
     print ">"
     user_prompt = gets.chomp.downcase
     if user_prompt == "p"
-      intro
     else user_prompt == 'q'
       quit
     end
@@ -40,10 +42,13 @@ class Messages
   def input_is_too_short
     puts "Your element input was too short.\n Please Try Again."
     print ">"
+    user_prompt = gets.chomp.downcase
   end
 
   def input_is_too_long
+    user_prompt = gets.chomp.downcase
     puts "Your element input was too long.\n Please Try Again."
     print ">"
+        user_prompt = gets.chomp.downcase
   end
 end

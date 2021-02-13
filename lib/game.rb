@@ -1,7 +1,13 @@
+require './lib/secret_code'
+require './lib/player_input'
+require './lib/code_comparer'
 require './lib/game_message'
 
 class Game
   attr_reader :message
+  attr_accessor :code_comparer,
+                :player_input,
+                :secret_code
 
   def initialize
     @message = Messages.new
@@ -13,24 +19,30 @@ class Game
     @message.welcome
     user_prompt = gets.chomp.downcase
   if user_prompt == 'p'
+    @message.intro
+    secret_code = SecretCode.new
+    secret_code.generate_code
     turn
   elsif user_prompt == 'i'
     @message.instructions
+    secret_code = SecretCode.new
+    secret_code.generate_code
+    turn
   elsif user_prompt == 'q'
     @message.quit
     end
   end
 
   def turn
-    @message.intro
-    #generate computer code
+
     @count += 1
     user_prompt = gets.chomp.downcase
-  if  player_input == true
-    p "player_guess has number has to compare to computer.generated_code of the correct elements with ___ in the correct positions
-     You've taken #{count} guess"
-   else
-      
+    player = PlayerInput.new(user_prompt)
+  if  player.valid_input
+    p "You've taken #{@count} guess'"
+
     end
+    print ">"
+    turn
   end
 end
