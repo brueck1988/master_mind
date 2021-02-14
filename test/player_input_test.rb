@@ -35,16 +35,16 @@ class PlayerInputTest < Minitest::Test
 
   def test_it_has_valid_input
     player_code1 = PlayerInput.new("rygb")
-    assert_equal true, player_code1.valid_input
+    assert_equal true, player_code1.valid_input?
 
     player_code2 = PlayerInput.new("yyb")
-    assert_equal false, player_code2.valid_input
+    assert_equal false, player_code2.valid_input?
 
     player_code3 = PlayerInput.new("GGGBY")
-    assert_equal false, player_code3.valid_input
+    assert_equal false, player_code3.valid_input?
 
     player_code4 = PlayerInput.new("PGGBY")
-    assert_equal false, player_code4.valid_input
+    assert_equal false, player_code4.valid_input?
 
 
   end

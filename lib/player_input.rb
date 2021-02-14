@@ -24,12 +24,14 @@ class PlayerInput
   end
 
   def valid_length?
-    if input.count == 4 
+    if input.count == 4
       true
     elsif input.count > 4
        @message.input_is_too_long
+       false
     else input.count <  4
        @message.input_is_too_short
+       false
     end
   end
 

@@ -6,6 +6,7 @@ require './lib/code_analyzer'
 class Messages
 
   def welcome
+    puts " \n"
     puts"Welcome to MASTERMIND!\n\nWould you like to (P)lay,\nread the (I)nstructions,\nor (Q)uit?"
     print ">"
   end
@@ -19,7 +20,7 @@ class Messages
     If a letter is in the wrong position but is used in the secret code, the codemaker will return a white pin.
     If the correct letter is in the correct position, the codemaker will return a red pin."
 
-    puts "Please enter 'P' to play or 'Q' to quit"
+    puts "\nPlease enter 'P' to play or 'Q' to quit"
     print ">"
     user_prompt = gets.chomp.upcase
     if user_prompt == "P"
@@ -29,11 +30,12 @@ class Messages
   end
 
   def quit
-    puts "You have quit the game.\n ---Good Bye---"
+    puts "\nYou have quit the game.\n---Good Bye---\n"
     exit
   end
 
   def intro
+    puts "\n"
     puts "I have generated a beginner sequence with four elements made up of:
     (R)ed,(G)reen, (B)lue, and (Y)ellow.
     Press (Q)uit at any time to end the game.
@@ -43,15 +45,15 @@ class Messages
 
 
   def input_is_too_short
-    puts "Your element input was too short.\n Please Try Again."
+    puts "Your element input was too short.\nPlease Try Again."
   end
 
   def input_is_too_long
-    puts "Your element input was too long.\n Please Try Again."
+    puts "Your element input was too long.\nPlease Try Again."
   end
 
   def invalid_element
-      puts "Your element input does not exist\n Please Try Again."
+      puts "Your element input does not exist\nPlease Try Again."
   end
 
   def play_again
