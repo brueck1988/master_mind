@@ -6,22 +6,24 @@ require './lib/code_analyzer'
 class Messages
 
   def welcome
-    puts"Welcome to MASTERMIND!\n\nWould you like to (p)lay\nread the (i)nstructions,\nor (q)uit?"
+    puts"Welcome to MASTERMIND!\n\nWould you like to (P)lay,\nread the (I)nstructions,\nor (Q)uit?"
     print ">"
   end
 
   def instructions
-    puts "    The Object of the game is to crack the secret code.
-    The codemaker(computer) will create a 4 letter code using the elements 'RYGB'.
-    Elements can be used more than once.
-    Your task is to figure out the correct order of the elements.
-    The codemaker will inform you of elements in the correct position(means both
-    the element and location are correct)or if the elements are correct but in the wrong position."
-    puts "Please enter 'p' to play or 'q' to quit"
+    puts "    The object of the game is to crack the secret code.
+    The codemaker(computer) will create a 4 letter code using only the letters 'RYGB'.
+    Letters can be used more than once, or not at all.
+    Your task is to figure out both which letters are used in the secret code, and in which order.
+    If a letter is not found in the secret code, no pin will be returned.
+    If a letter is in the wrong position but is used in the secret code, the codemaker will return a white pin.
+    If the correct letter is in the correct position, the codemaker will return a red pin."
+
+    puts "Please enter 'P' to play or 'Q' to quit"
     print ">"
-    user_prompt = gets.chomp.downcase
-    if user_prompt == "p"
-    else user_prompt == 'q'
+    user_prompt = gets.chomp.upcase
+    if user_prompt == "P"
+    else user_prompt == 'Q'
       quit
     end
   end
@@ -33,8 +35,8 @@ class Messages
 
   def intro
     puts "I have generated a beginner sequence with four elements made up of:
-    (r)ed,(g)reen, (b)lue, and (y)ellow.
-    Use (q)uit at any time to end the game.
+    (R)ed,(G)reen, (B)lue, and (Y)ellow.
+    Press Control + C at any time to end the game.
     What's your guess?"
     print ">"
   end

@@ -18,15 +18,15 @@ class Game
 
   def start
     @message.welcome
-    user_prompt = gets.chomp.downcase
-  if user_prompt == 'p'
+    user_prompt = gets.chomp.upcase
+  if user_prompt == 'P'
     @message.intro
     #require "pry";binding.pry
     turn
-  elsif user_prompt == 'i'
+  elsif user_prompt == 'I'
     @message.instructions
     turn
-  elsif user_prompt == 'q'
+  elsif user_prompt == 'Q'
     @message.quit
   else
     start
@@ -35,18 +35,32 @@ class Game
 
   def turn
     @count += 1
-    @starting_time = Time.now
+    @starting_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
     user_prompt = gets.chomp.upcase
     player_input = PlayerInput.new(user_prompt)
-  if  player_input.valid_input
+  if user_prompt == "SECRET"
+    p @secret_code
+    user_prompt = gets.chomp.upcase
+    player_input = PlayerInput.new(user_prompt)
+    next
+  elsif player_input.valid_input
     p code = CodeAnalyzer.new(secret_code, player_input.input)
-    p  code.code_comparer(secret_code, player_input.input)
-    #require "pry";binding.pry
-    p "#{player_input.input.join} has #{code.white_pin_count} of the correct elements with #{code.red_pin_count} in the correct positions."
+    code.code_comparer(secret_code, player_input.input)
+    p "Your guess #{player_input.input.join} returns #{code.white_pin_count} white_pins and #{code.red_pin_count} red pins."
     p "You've taken #{@count} guess(es)"
     if secret_code == player_input.input
-      p "Congratulations! You have have cracked the code!!! It was #{player_input.input.join} in #{@count} guesses and in #{(@starting_time - Time.now).to_i}___time"
-      start
+      finish_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      run_time =  (finish_time - @starting_time).to_i
+      p "Congratulations! You have have cracked the code #{player_input.input.join} in #{run_time} seconds using #{@count} guess(es)!!!"
+      p "Would you like to play again? Press (P) to play again or (Q) to quit."
+      user_prompt = gets.chomp.upcase
+      if P
+        start
+      elsif Q
+        @message.quit
+      else
+        start
+      end
     end
   elsif player_input.valid_length?
   else player_input.valid_elements?
