@@ -36,7 +36,7 @@ class Messages
   def intro
     puts "I have generated a beginner sequence with four elements made up of:
     (R)ed,(G)reen, (B)lue, and (Y)ellow.
-    Press Control + C at any time to end the game.
+    Press (Q)uit at any time to end the game.
     What's your guess?"
     print ">"
   end
@@ -52,5 +52,9 @@ class Messages
 
   def invalid_element
       puts "Your element input does not exist\n Please Try Again."
+  end
+
+  def play_again
+    puts "Would you like to play again? Press (P) to play again or (Q) to quit."
   end
 end

@@ -19,12 +19,12 @@ class PlayerInput
 
   def element_include_rgyb
     input.all? do |character|
-    character == "R"|| character == "G"||character =="Y"||(character ==("B"))
+    character == "R"||character == "G"||character == "Y"|| character == "B"
     end
   end
 
   def valid_length?
-    if input.count == 4
+    if input.count == 4 
       true
     elsif input.count > 4
        @message.input_is_too_long
