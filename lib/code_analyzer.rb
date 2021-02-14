@@ -13,19 +13,17 @@
     @white_pins    = Array.new(4)
   end
 
-
   def code_comparer(secret_code, player_input)
-
     4.times do |count1|
-    if @secret_code[count1] == player_input[count1]
-      @red_pins[count1] = "red pin"
-      end
+        if @secret_code[count1] == player_input[count1]
+          @red_pins[count1] = "red pin"
+        end
     4.times do |count2|
-    if @secret_code[count2] == player_input[count1]
-        @white_pins[count1] = "white pin"
+        if @secret_code[count2] == player_input[count1]
+          @white_pins[count1] = "white pin"
+        end
       end
     end
-  end
     @white_pins
     @red_pins
     output = @white_pins + @red_pins

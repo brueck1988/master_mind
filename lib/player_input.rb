@@ -1,7 +1,7 @@
 require './lib/game_message'
 
 class PlayerInput
-    attr_reader :input
+  attr_reader :input
 
   def initialize(input)
     @input   = input.upcase.split('')
@@ -19,7 +19,7 @@ class PlayerInput
 
   def element_include_rgyb
     input.all? do |character|
-    character == "R"||character == "G"||character == "Y"|| character == "B"
+      character == "R"||character == "G"||character == "Y"|| character == "B"
     end
   end
 
@@ -27,11 +27,11 @@ class PlayerInput
     if input.count == 4
       true
     elsif input.count > 4
-       @message.input_is_too_long
-       false
+      @message.input_is_too_long
+      false
     else input.count <  4
-       @message.input_is_too_short
-       false
+      @message.input_is_too_short
+      false
     end
   end
 

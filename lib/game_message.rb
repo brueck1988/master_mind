@@ -4,7 +4,6 @@ require './lib/player_input'
 require './lib/code_analyzer'
 
 class Messages
-
   def welcome
     puts " \n"
     puts"Welcome to MASTERMIND!\n\nWould you like to (P)lay,\nread the (I)nstructions,\nor (Q)uit?"
@@ -43,7 +42,6 @@ class Messages
     print ">"
   end
 
-
   def input_is_too_short
     puts "Your element input was too short.\nPlease Try Again."
   end
@@ -53,7 +51,7 @@ class Messages
   end
 
   def invalid_element
-      puts "Your element input does not exist\nPlease Try Again."
+    puts "Your element input does not exist\nPlease Try Again."
   end
 
   def play_again

@@ -2,11 +2,10 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/player_input'
 
-
-
 class PlayerInputTest < Minitest::Test
   def test_it_exists_and_has_attributes
     player_code = PlayerInput.new("rygb")
+
     assert_instance_of PlayerInput, player_code
     assert_equal ["R", "Y", "G", "B"], player_code.input
   end
@@ -45,7 +44,5 @@ class PlayerInputTest < Minitest::Test
 
     player_code4 = PlayerInput.new("PGGBY")
     assert_equal false, player_code4.valid_input?
-
-
   end
 end
