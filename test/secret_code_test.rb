@@ -2,54 +2,30 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/secret_code'
 
-class SecretCodeGeneratorTest < Minitest::Test
-  def test_it_exists
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    assert_instance_of SecretCodeGenerator, generated_code
+class SecretCodeTest < Minitest::Test
+  def test_it_exists_and_has_attributes
+    cpu_code = SecretCode.new
+    assert_instance_of SecretCode, cpu_code
+    assert_equal [], cpu_code.secret_code
   end
 
-  def test_it_has_attributes
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    assert_equal player_code, generated_code.player_code
-  end
-
-  def test_generate_code
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    generated_code.generate_code
-    assert_equal 4, generated_code.generate_code.length
-  end
-
-  def test_code_comparer
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    secret_code = generated_code.generate_code
-
-    generated_code.code_comparer(player_code)
-
-    assert_equal 4, generated_code.code_comparer(player_code)
-  end
-
-  def test_red_pin_count
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    #generated_code.generate_code
-    @secret_code = generated_code.generate_code
-    generated_code.code_comparer(player_code)
-    count = generated_code.red_pin_count
-    #require "pry";binding.pry
-    assert_equal count , generated_code.red_pin_count
-  end
-
-  def test_white_pin_count
-    player_code = ["R", "G", "Y", "B"]
-    generated_code = SecretCodeGenerator.new(player_code)
-    #generated_code.generate_code
-    count = generated_code.code_comparer(player_code).count("red pin")
-    generated_code.code_comparer(player_code)
-
-    assert_equal count, generated_code.white_pin_count
+  def test_it_can_generate_code
+    cpu_code = SecretCode.new
+    assert cpu_code.generate_code
   end
 end
+
+# @player_input == "q"
+# @message.quit
+#   exit
+# else @secret_code == @player_input
+#   finish_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+#   run_time =  (finish_time - @starting_time).to_i
+#   p "Congratulations! You have have cracked the code #{@player_input.input.join} in #{run_time} seconds using #{@count} guess(es)!!!"
+#   p "Would you like to play again? Press (P) to play again or (Q) to quit."
+#   user_prompt = gets.chomp.upcase
+# if @player_input == "P"
+#   start
+# elsif @player_input == "Q"
+#   @message.quit
+#   end
