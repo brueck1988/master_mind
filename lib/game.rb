@@ -56,7 +56,7 @@ class Game
     if @player_input.valid_input? == true
       @code = CodeAnalyzer.new(secret_code, @player_input.input)
       @code.code_comparer(secret_code, @player_input.input)
-      puts "Your guess '#{@player_input.input.join}' returns #{@code.white_pin_count} white_pins and #{@code.red_pin_count} red pins. \nYou've taken #{@count} guess(es)"
+      puts "Your guess '#{@player_input.input.join}' returns #{@code.white_pin_count} white pins and #{@code.red_pin_count} red pins. \nYou've taken #{@count} guess(es)"
     else
       @count -= 1
     end
@@ -100,7 +100,7 @@ class Game
 
   def cheater
     if @user_prompt == "S"
-      p @secret_code.join
+      p "#{@secret_code.join} you know that cheating is wrong"
       puts "\n"
     end
   end
