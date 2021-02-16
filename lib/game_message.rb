@@ -10,9 +10,16 @@ class Messages
     print ">"
   end
 
+  def difficulty_setting
+    puts " \n"
+    puts "Select your desired difficulty level. Would you like to play as (B)eginner, (I)ntermediate, or (A)dvanced?"
+    print ">"
+  end
+
   def instructions
     puts "    The object of the game is to crack the secret code.
-    The codemaker(computer) will create a 4 letter code using only the letters 'RYGB'.
+    The codemaker(computer) will create a #{@number_of_characters} letter code using
+    only the first letters of the colors #{@color_options}.
     Letters can be used more than once, or not at all.
     Your task is to figure out both which letters are used in the secret code, and in which order.
     If a letter is not found in the secret code, no pin will be returned.
@@ -33,10 +40,28 @@ class Messages
     exit
   end
 
-  def intro
+  def intro_beginner
     puts "\n"
     puts "I have generated a beginner sequence with four elements made up of:
     (R)ed,(G)reen, (B)lue, and (Y)ellow.
+    Press (Q)uit at any time to end the game.
+    What's your guess?"
+    print ">"
+  end
+
+  def intro_intermediate
+    puts "\n"
+    puts "I have generated a beginner sequence with six elements made up of:
+    (R)ed,(G)reen, (B)lue, (Y)ellow, and (O)range.
+    Press (Q)uit at any time to end the game.
+    What's your guess?"
+    print ">"
+  end
+
+  def intro_advanced
+    puts "\n"
+    puts "I have generated a beginner sequence with eight elements made up of:
+    (R)ed,(G)reen, (B)lue, (Y)ellow, (O)range, and (P)urple.
     Press (Q)uit at any time to end the game.
     What's your guess?"
     print ">"
